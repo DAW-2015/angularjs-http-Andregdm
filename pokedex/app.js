@@ -31,7 +31,14 @@ app.factory('PokedexService', function($http){
 
   pokedexService.getPokemonDescriptionById = function(id, callback) {
     // TODO: implementar código para recuperar os detalhes de um pokemon por seu id
-
+    $http.get('http://pokeapi.co/api/v1/pokemon/' + id + ).then(function(response) {
+      var answer = response.data;
+      callback(answer);
+    },
+    function(response) {
+      var answer = null;
+      callback(answer);
+    });
   };
 
   return pokedexService;
