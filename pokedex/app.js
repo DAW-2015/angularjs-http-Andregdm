@@ -31,7 +31,7 @@ app.factory('PokedexService', function($http){
 
   pokedexService.getPokemonDescriptionById = function(id, callback) {
     // TODO: implementar código para recuperar os detalhes de um pokemon por seu id
-    $http.get('http://pokeapi.co/api/v1/pokemon/' + id + ).then(function(response) {
+    $http.get('http://pokeapi.co/api/v1/pokemon/' + id + '/' ).then(function(response) {
       var answer = response.data;
       callback(answer);
     },
@@ -59,6 +59,16 @@ app.controller('PokedexController', ['PokedexService', function(pokedexService){
     pokedexService.getPokemon(pokemonUrl, function(answer) {
       if (answer !== null) {
         self.singlePokemon = answer;
+      }
+    });
+  }
+
+  this.getDetalhesID = function(pokemonUrl) {
+    var idV = pokemonUrl.split("/");
+    var id = idV[3];
+    pokedexService.getPokemonDescriptionById(id, function(answer) {
+      if (answer !== null) {
+        self.singlePokemonDetails = answer;
       }
     });
   }

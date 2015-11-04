@@ -12,9 +12,18 @@
           <b>Pokemon selecionado</b>
           <p><img ng-src="http://pokeapi.co/media/img/{{pokeCtrl.singlePokemon.pkdx_id}}.png" alt=""></p>
           <p>Nome: {{pokeCtrl.singlePokemon.name}}</p>
-          <p>Número:  {{pokeCtrl.singlePokemon.pkdx_id}}</p>
+          <p>Número: {{pokeCtrl.singlePokemon.pkdx_id}}</p>
           <p>Ataque: {{pokeCtrl.singlePokemon.sp_atk}}</p>
           <p>Defesa: {{pokeCtrl.singlePokemon.sp_def}}</p>
+        </div>
+
+        <div>
+          <b>Pokemon selecionado - ID</b>
+          <p><img ng-src="http://pokeapi.co/media/img/{{pokeCtrl.singlePokemonDetails.pkdx_id}}.png" alt=""></p>
+          <p>Nome: {{pokeCtrl.singlePokemonDetails.name}}</p>
+          <p>Número: {{pokeCtrl.singlePokemonDetails.pkdx_id}}</p>
+          <p>Ataque: {{pokeCtrl.singlePokemonDetails.sp_atk}}</p>
+          <p>Defesa: {{pokeCtrl.singlePokemonDetails.sp_def}}</p>
         </div>
 
         <h1>COLTECdex</h1>
@@ -22,7 +31,7 @@
         <table>
           <tr><td><b>Pokemon</b></td></tr>
           <tr ng-repeat="pokemon in pokeCtrl.pokemons">
-            <td>{{pokemon.name}}</td> <td><button ng-click="pokeCtrl.getDetalhes(pokemon.resource_uri)">Detalhes</button></td>
+            <td>{{pokemon.name}}</td> <td><button ng-click="pokeCtrl.getDetalhes(pokemon.resource_uri)">Detalhes</button></td> <td><button ng-click="pokeCtrl.getDetalhesID(pokemon.resource_uri)">Detalhes - ID</button></td>
           </tr>
       </table>
     </div>
